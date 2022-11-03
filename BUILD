@@ -11,3 +11,9 @@ label_flag(
     build_setting_default = ":clang_tidy_config_default",
     visibility = ["//visibility:public"],
 )
+
+label_flag(
+    name = "clang_tidy",
+    build_setting_default = "//clang_tidy:clang_tidy",
+    visibility = ["//visibility:public"],
+)
