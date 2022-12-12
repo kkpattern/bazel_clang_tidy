@@ -78,7 +78,7 @@ done
 
 CLANG_TIDY=$(rlocation "{repo_name}/llvm-{llvm_version}/bin/clang-tidy")
 LLVM_HOME=$(readlink $(dirname $(dirname $CLANG_TIDY)))
-"$CLANG_TIDY" "${{ARGS[@]}}"
+"$CLANG_TIDY" "${{ARGS[@]}}" '-DNS_FORMAT_ARGUMENT(A)='
 EXECUTION_ROOT="$(pwd)"
 sed -i '' "s=$EXECUTION_ROOT/==g" "$OUTPUT"
 sed -i '' "s=$EXECUTION_ROOT==g" "$OUTPUT"
