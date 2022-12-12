@@ -78,7 +78,7 @@ done
 
 CLANG_TIDY=$(rlocation "{repo_name}/llvm-{llvm_version}/bin/clang-tidy")
 LLVM_HOME=$(readlink $(dirname $(dirname $CLANG_TIDY)))
-"$CLANG_TIDY" "${{ARGS[@]}}"
+"$CLANG_TIDY" "${{ARGS[@]}}" -nobuiltininc -nostdinc "-isystem$SDKROOT/usr/include/c++/v1/" "-isystem$SDKROOT/usr/include" "-isystem/Applications/Xcode-14.1.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include/" -DNS_FORMAT_ARGUMENT
 EXECUTION_ROOT="$(pwd)"
 sed -i '' "s=$EXECUTION_ROOT/==g" "$OUTPUT"
 sed -i '' "s=$EXECUTION_ROOT==g" "$OUTPUT"
